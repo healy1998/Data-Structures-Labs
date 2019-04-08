@@ -1,0 +1,39 @@
+
+#include <iostream>
+#include <math.h>
+#include <stdlib.h>
+#include <sstream>
+
+using namespace std;
+
+//void readArr(int, int, double **);
+
+int main(int argc, char *argv[])
+{
+  int count = 0;
+  double epsilon;
+  if(argc > 1 && string(argv[1]) == "-e")
+    epsilon = fabs(strtod(argv[2], 0));
+  string line;
+  while(getline(cin, line))
+  {
+    std::istringstream lstream(line);
+    double val;
+
+    while(lstream>>val)
+    {
+      // cout << val;
+      count++;
+      if(val != 0)
+	// cout << val;
+      {
+	  if(val >= 0+epsilon || val <= 0-epsilon)
+	  {
+	      cout << count << " " << val << " " ;
+	  }
+
+      }
+    }
+    cout << endl;
+  }  
+}
